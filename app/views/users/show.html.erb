@@ -9,11 +9,12 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
-<p>
-  <strong>1st Micropost:</strong>
-  <%= @user.microposts.first.content %>
-</p>
+<% if @user.microposts.exists? %>
+  <p>
+    <strong>1st Micropost:</strong>
+    <%= @user.microposts.first.content %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
